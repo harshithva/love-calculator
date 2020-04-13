@@ -17,7 +17,7 @@ class CreateLoveTable extends Migration
             $table->id();
             $table->string("name_1");
             $table->string("name_2");
-            $table->double('perc', 3, 2)->default('100');;
+            $table->integer('perc')->default('100');;
             $table->timestamps();
         });
     }

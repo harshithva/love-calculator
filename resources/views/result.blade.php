@@ -9,12 +9,11 @@
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link href="{{asset('assets/css/argon.css')}}" rel="stylesheet">
 </head>
 
 <body>
-    <nav class="navbar navbar-light bg-info">
+    <nav class="navbar navbar-light bg-primary">
         <a class="navbar-brand text-white" href="#">
             {{-- <img {{ asset('./img/logo.png') }} width="30" height="30" class="d-inline-block align-top" alt=""> --}}
             <i class="fas fa-heart text-white"></i>&nbsp;
@@ -24,18 +23,32 @@
 
     <div class="container-fluid mt-3">
         <div class="progress-wrapper">
-            <div class="progress-info">
+            <div class="progress-primary">
                 <div class="progress-label">
-                    <span>Task completed</span>
+                    <span>Compatibility</span>
                 </div>
                 <div class="progress-percentage">
-                    <span>60%</span>
+                    <span>{{$response->percentage}}</span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col text-center">
+                    <h1>{{$response->percentage}}%</h1>
                 </div>
             </div>
             <div class="progress">
-                <div class="progress-bar bg-default" role="progressbar" aria-valuenow="60" aria-valuemin="0"
-                    aria-valuemax="100" style="width: 60%;"></div>
+                <div class="progress-bar bg-default" role="progressbar" aria-valuenow="{{$response->percentage}}"
+                    aria-valuemin="0" aria-valuemax="100" style="width: {{$response->percentage}}%;"></div>
             </div>
+        </div>
+
+
+        <div class="jumbotron text-center">
+            <p>{{$response->result}}</p>
+            <h1 class="display-3">Thank You!</h1>
+            <p class="lead">
+                <a class="btn btn-primary btn-lg btn-block" href="{{route('home')}}" role="button">Calculate Again</a>
+            </p>
         </div>
     </div>
     <script src="https://kit.fontawesome.com/94f4252744.js" crossorigin="anonymous"></script>

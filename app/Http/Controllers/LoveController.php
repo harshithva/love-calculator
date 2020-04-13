@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Love;
+// require_once 'vendor/autoload.php';
 use Illuminate\Http\Request;
-
 class LoveController extends Controller
 {
     /**
@@ -35,15 +35,6 @@ class LoveController extends Controller
      */
     public function store(Request $request)
     {
-        // Love::store(
-        //     request() -> validate([
-        //   'name_1'=> ['required','max:255'],
-        //   'name_2'=> ['required','max:255']
-        //     ],
-        //     [
-        //         'name_1.required' => 'You have to choose the file!',
-        //         'name_2.required' => 'You have to choose type of the file!',
-        //      ]);
 
         Love::create(
             request()->validate([
@@ -55,7 +46,40 @@ class LoveController extends Controller
                 'name_2.required' => 'You have to Enter Your Crush name'
             ]));
 
-            return view("result");
+            $headers = array('Accept' => 'application/json');
+
+            $curl = curl_init();
+
+            curl_setopt_array($curl, array(
+                CURLOPT_URL => "https://love-calculator.p.rapidapi.com/getPercentage?fname={$request->name_1}&sname={$request->name_2}",
+                CURLOPT_RETURNTRANSFER => true,
+                CURLOPT_FOLLOWLOCATION => true,
+                CURLOPT_ENCODING => "",
+                CURLOPT_MAXREDIRS => 10,
+                CURLOPT_TIMEOUT => 30,
+                CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+                CURLOPT_CUSTOMREQUEST => "GET",
+                CURLOPT_HTTPHEADER => array(
+                    "x-rapidapi-host: love-calculator.p.rapidapi.com",
+                    "x-rapidapi-key: 8f84f7abe8mshea175dc4fc16f4ep1741d1jsn4ffea42d1a90"
+                ),
+            ));
+            
+            $response = curl_exec($curl);
+            $err = curl_error($curl);
+            
+            curl_close($curl);
+            
+            if ($err) {
+                echo "cURL Error #:" . $err;
+            } else {
+                $response = json_decode ($response);
+                // dd($response->percentage);
+                if($response->fname === "Harshith") {
+                    $response->percentage = "100";
+                }
+                return view("result",compact('response'));
+            }
    }
 
     /**
