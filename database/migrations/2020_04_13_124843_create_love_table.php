@@ -18,6 +18,9 @@ class CreateLoveTable extends Migration
             $table->string("name_1");
             $table->string("name_2");
             $table->string('perc')->nullable();
+            $table->string('country')->nullable();
+            $table->string('region')->nullable();
+            $table->string('city')->nullable();
             $table->timestamps();
         });
     }

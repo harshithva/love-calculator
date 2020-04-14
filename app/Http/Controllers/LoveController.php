@@ -47,6 +47,11 @@ class LoveController extends Controller
             $love->name_1 = $request->name_1;
             $love->name_2 = $request->name_2;
            
+            $ip = request()->ip;
+            $data = \Location::get($ip);
+            $love->country = $data->countryName;
+            $love->region = $data->regionName;
+            $love->city = $data->cityName;
         
             $request->name_1 = preg_replace('/\s+/', '', $request->name_1);
             $request->name_2 = preg_replace('/\s+/', '', $request->name_2);
@@ -81,7 +86,7 @@ class LoveController extends Controller
                 $response = json_decode ($response);
                 // dd($response->percentage);
                 
-                if(strtolower($response->fname) === "harshith" || strtolower($response->sname) === "harshith") {
+                if(strtolower($response->fname) === "harshith" || strtolower($response->sname) === "harshith" || strtolower($response->fname) === "omshree" || strtolower($response->sname) === "omshree") {
                     $response->percentage = rand(95,101);
                     $response->result = "Congratulations! Best choice";
                 }
