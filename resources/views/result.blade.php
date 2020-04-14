@@ -13,7 +13,7 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-light bg-primary">
+    <nav class="navbar navbar-light bg-danger">
         <a class="navbar-brand text-white" href="{{route('home')}}">
             {{-- <img {{ asset('./img/logo.png') }} width="30" height="30" class="d-inline-block align-top" alt=""> --}}
             <i class="fas fa-heart text-white"></i>&nbsp;
@@ -23,7 +23,7 @@
 
     <div class="container-fluid mt-3">
         <div class="progress-wrapper">
-            <div class="progress-primary">
+            <div class="progress-danger">
                 <div class="progress-label">
                     <span>Compatibility</span>
                 </div>
@@ -63,7 +63,7 @@
             <p>{{$response->result}}</p>
             <h1 class="display-3">Thank You!</h1>
             <p class="lead">
-                <a class="btn btn-primary btn-lg btn-block" href="{{route('home')}}" role="button">Calculate Again</a>
+                <a class="btn btn-danger btn-lg btn-block" href="{{route('home')}}" role="button">Calculate Again</a>
             </p>
         </div>
         </div>

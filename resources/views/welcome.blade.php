@@ -14,7 +14,8 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-light bg-primary">
+
+    <nav class="navbar navbar-light bg-danger">
         <a class="navbar-brand text-white" href="{{route('home')}}">
             {{-- <img {{ asset('./img/logo.png') }} width="30" height="30" class="d-inline-block align-top" alt=""> --}}
             <i class="fas fa-heart text-white"></i>&nbsp;
@@ -24,7 +25,7 @@
 
     <div class="container-fluid mt-3">
 
-        <h2 class="text-primary font-weight-bold">Welcome to this great invention of Doctor Love!</h2><br>
+        <h2 class="text-danger font-weight-bold">Welcome to this great invention of Doctor Love!</h2><br>
         <p>We all know that a name can tell a lot about a person. Names are not randomly chosen: they all have a
             meaning. Doctor Love knew this so he made another great invention just for the lonely you!<br><br>
 
@@ -44,25 +45,27 @@
             </div>
             @endif
 
-            <div class="form-group shadow p-3 mb-5 bg-white rounded border border-primary">
-                <label for="exampleInputEmail1">Your First Name</label>
+            <div class="form-group shadow p-3 mb-5 bg-white rounded border border-danger">
+                <label for="exampleInputEmail1">Your Name</label>
                 <input type="text" class="form-control" name="name_1">
                 <small id="emailHelp" class="form-text text-muted">We'll never your details with anyone else.</small>
             </div>
-            <div class="form-group shadow p-3 mb-5 bg-white rounded border border-primary">
-                <label for="exampleInputEmail1">Your Crush First name</label>
+            <div class="form-group shadow p-3 mb-5 bg-white rounded border border-danger">
+                <label for="exampleInputEmail1">Your Crush name</label>
                 <input type="text" class="form-control" name="name_2">
                 <small id="emailHelp" class="form-text text-muted">Enter person's name you are having crush on!.</small>
             </div>
             <div class="row">
                 <div class="col text-center">
-                    <button type="submit" class="btn btn-primary mb-2 text-white btn-lg btn-block">Calculate</button>
+                    <button type="submit" class="btn btn-danger mb-2 text-white btn-lg btn-block">Calculate</button>
                 </div>
             </div>
 
         </form>
     </div>
-    <script src="https://kit.fontawesome.com/94f4252744.js" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/94f4252744.js" crossorigin="anonymous">
+    </script>
+
 </body>
 
 </html>
