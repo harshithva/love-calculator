@@ -15,7 +15,7 @@
 
 <body>
     <nav class="navbar navbar-light bg-primary">
-        <a class="navbar-brand text-white" href="#">
+        <a class="navbar-brand text-white" href="{{route('home')}}">
             {{-- <img {{ asset('./img/logo.png') }} width="30" height="30" class="d-inline-block align-top" alt=""> --}}
             <i class="fas fa-heart text-white"></i>&nbsp;
             Love Calculator
@@ -45,12 +45,12 @@
             @endif
 
             <div class="form-group shadow p-3 mb-5 bg-white rounded border border-primary">
-                <label for="exampleInputEmail1">Your Name</label>
+                <label for="exampleInputEmail1">Your First Name</label>
                 <input type="text" class="form-control" name="name_1">
                 <small id="emailHelp" class="form-text text-muted">We'll never your details with anyone else.</small>
             </div>
             <div class="form-group shadow p-3 mb-5 bg-white rounded border border-primary">
-                <label for="exampleInputEmail1">Your Crush</label>
+                <label for="exampleInputEmail1">Your Crush First name</label>
                 <input type="text" class="form-control" name="name_2">
                 <small id="emailHelp" class="form-text text-muted">Enter person's name you are having crush on!.</small>
             </div>

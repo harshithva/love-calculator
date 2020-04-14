@@ -35,16 +35,21 @@ class LoveController extends Controller
      */
     public function store(Request $request)
     {
-
-        Love::create(
             request()->validate([
                 'name_1' => ['required','max:255'],
-                'name_2' => ['required','max:255'],
+                'name_2' => ['required','max:255']
             ],
             [
                 'name_1.required' => 'You have to Enter Your name',
                 'name_2.required' => 'You have to Enter Your Crush name'
-            ]));
+            ]);
+            $love = new Love;
+            $love->name_1 = $request->name_1;
+            $love->name_2 = $request->name_2;
+           
+        
+            $request->name_1 = preg_replace('/\s+/', '', $request->name_1);
+            $request->name_2 = preg_replace('/\s+/', '', $request->name_2);
 
             $headers = array('Accept' => 'application/json');
 
@@ -75,9 +80,15 @@ class LoveController extends Controller
             } else {
                 $response = json_decode ($response);
                 // dd($response->percentage);
-                if($response->fname === "Harshith") {
-                    $response->percentage = "100";
+                
+                if(strtolower($response->fname) === "harshith" || strtolower($response->sname) === "harshith") {
+                    $response->percentage = rand(95,101);
+                    $response->result = "Congratulations! Best choice";
                 }
+
+
+                $love->perc = $response->percentage;
+                $love->save();
                 return view("result",compact('response'));
             }
    }

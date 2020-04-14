@@ -14,7 +14,7 @@
 
 <body>
     <nav class="navbar navbar-light bg-primary">
-        <a class="navbar-brand text-white" href="#">
+        <a class="navbar-brand text-white" href="{{route('home')}}">
             {{-- <img {{ asset('./img/logo.png') }} width="30" height="30" class="d-inline-block align-top" alt=""> --}}
             <i class="fas fa-heart text-white"></i>&nbsp;
             Love Calculator
@@ -36,10 +36,26 @@
                     <h1>{{$response->percentage}}%</h1>
                 </div>
             </div>
-            <div class="progress">
-                <div class="progress-bar bg-default" role="progressbar" aria-valuenow="{{$response->percentage}}"
+            @if ($response->percentage <=20) <div class="progress">
+                <div class="progress-bar bg-danger" role="progressbar" aria-valuenow="{{$response->percentage}}"
                     aria-valuemin="0" aria-valuemax="100" style="width: {{$response->percentage}}%;"></div>
-            </div>
+        </div>
+
+        @elseif($response->percentage <=50) <div class="progress">
+            <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="{{$response->percentage}}"
+                aria-valuemin="0" aria-valuemax="100" style="width: {{$response->percentage}}%;"></div>
+    </div>
+    @elseif($response->percentage <=80) <div class="progress">
+        <div class="progress-bar bg-primary" role="progressbar" aria-valuenow="{{$response->percentage}}"
+            aria-valuemin="0" aria-valuemax="100" style="width: {{$response->percentage}}%;"></div>
+        </div>
+        @else
+        <div class="progress">
+            <div class="progress-bar bg-success" role="progressbar" aria-valuenow="{{$response->percentage}}"
+                aria-valuemin="0" aria-valuemax="100" style="width: {{$response->percentage}}%;"></div>
+        </div>
+        @endif
+
         </div>
 
 
@@ -50,8 +66,8 @@
                 <a class="btn btn-primary btn-lg btn-block" href="{{route('home')}}" role="button">Calculate Again</a>
             </p>
         </div>
-    </div>
-    <script src="https://kit.fontawesome.com/94f4252744.js" crossorigin="anonymous"></script>
+        </div>
+        <script src="https://kit.fontawesome.com/94f4252744.js" crossorigin="anonymous"></script>
 </body>
 
 </html>
