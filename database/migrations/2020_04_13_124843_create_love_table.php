@@ -21,6 +21,8 @@ class CreateLoveTable extends Migration
             $table->string('country')->nullable();
             $table->string('region')->nullable();
             $table->string('city')->nullable();
+            $table->string('ip')->nullable();
+            $table->string('device')->nullable();
             $table->timestamps();
         });
     }

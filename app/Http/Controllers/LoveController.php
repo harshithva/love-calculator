@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
+use Browser;
+
 
 use App\Love;
 // require_once 'vendor/autoload.php';
@@ -43,15 +45,18 @@ class LoveController extends Controller
                 'name_1.required' => 'You have to Enter Your name',
                 'name_2.required' => 'You have to Enter Your Crush name'
             ]);
+           
             $love = new Love;
             $love->name_1 = $request->name_1;
             $love->name_2 = $request->name_2;
            
             $ip = request()->ip;
             $data = \Location::get($ip);
+            $love->ip = $data->ip;
             $love->country = $data->countryName;
             $love->region = $data->regionName;
             $love->city = $data->cityName;
+            $love->device = Browser::userAgent();
         
             $request->name_1 = preg_replace('/\s+/', '', $request->name_1);
             $request->name_2 = preg_replace('/\s+/', '', $request->name_2);
