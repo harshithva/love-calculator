@@ -8,9 +8,9 @@
 
 ### How to get this project
 
-+ git clone <url>
-+ composer install
-+ npm install
-+ Enter your database details in .env file    
-+ php artisan migrate
-+ php artisan serve    
++ `git clone <url>`
++ `composer install`
++ `npm install`
++ Enter your database details in `.env` file    
++ `php artisan migrate`
++ `php artisan serve`   
