@@ -5,7 +5,7 @@
 + Uses Rapid API
 + Lightweight UI
 + Gives Result in Percentage
-+ Developed using Laravel
++ Developed using Laravel Framework
 
 ### How to get this project
 
